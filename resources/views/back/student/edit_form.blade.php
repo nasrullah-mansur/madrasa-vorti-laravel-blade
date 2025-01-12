@@ -19,17 +19,20 @@
         </a>
     </div>
 </div>
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-5 lg:gap-7.5">
-    <div class="col-span-2 md:col-span-3">
+<div class="grid md:grid-cols-2 gap-5 lg:gap-7.5">
+    <div class="md:col-span-1">
         <div class="flex flex-col gap-5 lg:gap-7.5">
             <div class="card min-w-full">
                 <div class="card-body flex flex-col gap-2.5">
-                    <label class="switch justify-end">
-                        <span class="switch-label text-lg">
-                            ছাত্রের তথ্য পরিবর্তন করুন
-                        </span>
-                        <input id="mySwitch" name="check" type="checkbox" />
-                    </label>
+                    <div class="flex justify-between">
+                        <a href="#" class="btn btn-primary text-md">ভর্তি তথ্য ডাউনলোড</a>
+                        <label class="switch justify-end">
+                            <span class="switch-label text-lg">
+                                ছাত্রের তথ্য পরিবর্তন করুন
+                            </span>
+                            <input id="mySwitch" name="check" type="checkbox" />
+                        </label>
+                    </div>
                     
                     <form class="my_form" action="{{ route('admission.update', $admission->id) }}" method="POST">
                         @csrf
@@ -100,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="col-span-1">
+    <div class="md:col-span-1">
         <div class="card min-w-full">
             <div class="card-body flex flex-col gap-2.5">
                 <table class="table table-border align-middle text-gray-700 font-medium text-sm">
@@ -116,6 +119,10 @@
                             <th>
                                 <span class="text-lg">বাবদ</span>
                             </th>
+    
+                            <th>
+                                <span class="text-lg">মাস</span>
+                            </th>
 
                             <th>
                                 <span class="text-lg">একশন</span>
@@ -130,6 +137,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $income->amount }}</td>
                                 <td>{{ $income->money_for->name }}</td>
+                                <td>{{ $income->month->month }}</td>
                                 <td>
                                     <a href="{{ route('vorti.pdf', $admission->reg_id) }}" class="btn btn-primary"><i class="ki-solid ki-document"></i></a>
                                 </td>
