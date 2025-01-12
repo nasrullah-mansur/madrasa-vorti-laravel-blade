@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admission;
+use App\Models\Income;
 use App\Models\Sector;
 use App\Models\Year;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class AdmissionController extends Controller
     public function create() {
         $years = Year::all();
         $sectors = Sector::all();
-        $admissions = Admission::orderBy('created_at', 'DESC')->take(10)->get();
+        $admissions = Admission::orderBy('created_at', 'DESC')->take(5)->get();
         return view('back.student.create', [
             'years' => $years,
             "sectors" => $sectors,
@@ -153,15 +154,17 @@ class AdmissionController extends Controller
         ]);
     }
 
+    // For add money or edit student data;
     public function edit_form($id) {
         $admission = Admission::where('reg_id', $id)->firstOrFail();
+        $incomes = Income::where('admission_id', $admission->id)->get();
         $years = Year::all();
         $sectors = Sector::all();
         return view('back.student.edit_form', [
             'admission' => $admission,
             'years' => $years,
             'sectors' => $sectors,
-            
+            'incomes' => $incomes,
         ]);
     }
 

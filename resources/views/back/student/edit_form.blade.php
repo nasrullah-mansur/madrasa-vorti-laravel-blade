@@ -31,7 +31,7 @@
                         <input id="mySwitch" name="check" type="checkbox" />
                     </label>
                     
-                    <form action="{{ route('admission.update', $admission->id) }}" method="POST">
+                    <form class="my_form" action="{{ route('admission.update', $admission->id) }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-2 md:grid-cols-1 gap-3 mb-3">
                             <div class="col-span-2">
@@ -100,6 +100,47 @@
             </div>
         </div>
     </div>
+    <div class="col-span-1">
+        <div class="card min-w-full">
+            <div class="card-body flex flex-col gap-2.5">
+                <table class="table table-border align-middle text-gray-700 font-medium text-sm">
+                    <thead class="border">
+                        <tr>
+                            <th>
+                                <span class="text-lg">ক্রঃ</span>
+                            </th>
+                            <th>
+                                <span class="text-lg">পরিমাণ</span>
+                            </th>
+    
+                            <th>
+                                <span class="text-lg">বাবদ</span>
+                            </th>
+
+                            <th>
+                                <span class="text-lg">একশন</span>
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="border">
+                       
+                        @foreach ($incomes as $income)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $income->amount }}</td>
+                                <td>{{ $income->money_for->name }}</td>
+                                <td>
+                                    <a href="{{ route('vorti.pdf', $admission->reg_id) }}" class="btn btn-primary"><i class="ki-solid ki-document"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <a href="{{ route('income.create', $admission->id) }}" class="w-full btn btn-primary flex items-center justify-center text-md">একটি আয় গ্রহণ করুন</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -107,7 +148,7 @@
 
 @push('js')
     <script>
-        let elements = document.querySelectorAll('form input, form select, form button');
+        let elements = document.querySelectorAll('.my_form input, .my_form select, .my_form button');
         let switchBtn = document.getElementById('mySwitch');
         const toggleElements = (status) => elements.forEach(el => el.toggleAttribute('disabled', !status));
         switchBtn.addEventListener('change', () => toggleElements(switchBtn.checked));

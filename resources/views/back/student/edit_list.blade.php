@@ -4,7 +4,7 @@
 <div class="flex flex-wrap items-center lg:items-end justify-between gap-5 pb-7.5">
     <div class="flex flex-col justify-center gap-2">
         <h1 class="text-xl font-medium leading-none text-gray-900">
-            ছাত্র তথ্য
+            ছাত্র ভর্তি তথ্য
         </h1>
         <div class="flex items-center gap-2 text-sm font-normal text-gray-700">
        ভর্তি ছাত্রদেরর তথ্য
@@ -52,7 +52,10 @@
                     <td>{{ $admission->reg_id }}</td>
                     <td>{{ $admission->user->name }}</td>
                     <td>
-                        <a href="{{ route('admission.edit', $admission->reg_id) }}" class="btn btn-primary text-md">এডিট করুন / তথ্য দেখুন</a>
+                        <div class="flex">
+                            <a href="{{ route('admission.edit', $admission->reg_id) }}" class="mr-1 btn btn-primary text-md">এডিট / দেখুন / আদায়</a>
+                            <a href="#" class="btn btn-primary text-md"><i class="ki-solid ki-document"></i></a>
+                        </div>
                     </td>
                 </tr>
                 @empty

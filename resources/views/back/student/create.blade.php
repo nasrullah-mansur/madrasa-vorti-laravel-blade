@@ -125,6 +125,10 @@
                         <th>
                             <span class="text-lg">দাখেলা</span>
                         </th>
+
+                        <th>
+                            <span class="text-lg">প্রিন্ট</span>
+                        </th>
                         
                     </tr>
                 </thead>
@@ -137,6 +141,9 @@
                        </td>
                        <td class="text-md">
                             {{ $admission->reg_id }}
+                        </td>
+                        <td class="text-md">
+                            <a href="{{ route('vorti.pdf', $admission->reg_id) }}" class="btn btn-primary"><i class="ki-solid ki-document"></i></a>
                         </td>
                     </tr>
                     @endforeach

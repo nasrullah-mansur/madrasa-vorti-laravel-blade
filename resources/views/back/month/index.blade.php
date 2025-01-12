@@ -32,6 +32,9 @@
                         <span class="text-lg">বর্ষ</span>
                     </th>
                     <th>
+                        <span class="text-lg">স্টাটাস</span>
+                    </th>
+                    <th>
                         <span class="text-lg">তৈরীর তারিখ</span>
                     </th>
                     <th>
@@ -51,6 +54,9 @@
                     <td class="text-md">
                          {{ $month->year->year }}
                     </td>
+                    <td class="text-md">
+                        {{ $month->status }}
+                   </td>
                     <td class="text-md">
                         {{ $month->created_at->diffForHumans() }}
                     </td>

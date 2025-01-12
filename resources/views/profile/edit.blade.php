@@ -19,8 +19,8 @@
     
     
 </div>
-<div class="card min-w-full">
-    <div class="">
+<div class="grid md:grid-cols-2 gap-5">
+    <div class="card mb-3">
         <div class="modal-header">
             <h3 class="modal-title">
                 আমার একাউন্ট আপডেট
@@ -40,6 +40,8 @@
         </div>
 
         <hr>
+    </div>
+    <div class="card mb-3">
         <div class="modal-header">
             <h3 class="modal-title">
                 আমার পাসওয়ার্ড আপডেট

@@ -35,8 +35,14 @@
                 <select class="select text-md" name="year_id">
                     <option selected disabled>একটি বর্ষ সিলেক্ট করুন</option>
                     @foreach ($years as $year)
-                    <option value="{{ $year->id }}">{{ $year->year }}</option>
+                    <option {{ $year->id ==  $month->year_id ? 'selected' : ""}} value="{{ $year->id }}">{{ $year->year }}</option>
                     @endforeach
+                </select>
+                <br>
+                <label class="text-md pl-1 pb-2" for="email">একটি স্টাটাস সিলেক্ট করুন</label>
+                <select class="select text-md mb-3" name="status">
+                    <option value="{{ STATUS_ACTIVE }}">{{ STATUS_ACTIVE }}</option>
+                    <option value="{{ STATUS_INACTIVE }}">{{ STATUS_INACTIVE }}</option>
                 </select>
                    <small class="text-danger block mb-3">{{ $errors->first('year_id') }}</small>
                 <button class="text-md bg-primary text-light py-1 px-4 rounded">মাস এডিট করুন</button>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MonthController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\UserController;
@@ -51,6 +53,7 @@ Route::middleware(["auth"])->group(function() {
     Route::get('users/status/change', [UserController::class, 'status_change'])->name('user.status.change');
 
 
+    // Everything about student;
     Route::get('student/admission', [AdmissionController::class, 'create'])->name('admission.create');
     Route::post('student/admission', [AdmissionController::class, 'store'])->name('admission.store');
     Route::post('student/admission/{id}', [AdmissionController::class, 'update'])->name('admission.update');
@@ -61,6 +64,23 @@ Route::middleware(["auth"])->group(function() {
     Route::get('student/find/{tag}/{id}', [AdmissionController::class, 'edit_list'])->name('admission.get');
     Route::get('student/edit/{id}', [AdmissionController::class, 'edit_form'])->name('admission.edit');
     Route::get('student/check', [AdmissionController::class, 'student_check'])->name('admission.check');
+
+
+    // PDF;
+    Route::get('/pdf/vorti/{reg_no}', [PDFController::class, 'vorti_pdf'])->name('vorti.pdf');
+
+
+    // Mony For;
+    Route::get('/money-for', [IncomeController::class, 'money_for_index'])->name('money.for.index');
+    Route::get('/money-for/create', [IncomeController::class, 'money_for_create'])->name('money.for.create');
+    Route::post('/money-for', [IncomeController::class, 'money_for_store'])->name('money.for.store');
+    Route::get('/money-for/{id}', [IncomeController::class, 'money_for_edit'])->name('money.for.edit');
+    Route::post('/money-for/{id}', [IncomeController::class, 'money_for_update'])->name('money.for.update');
+
+    // Income;
+    Route::get('/income/create/{id}', [IncomeController::class, 'income_create'])->name('income.create');
+    Route::post('/income/store', [IncomeController::class, 'income_store'])->name('income.store');
+
 
 });
 

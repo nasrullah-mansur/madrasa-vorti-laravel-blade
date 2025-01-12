@@ -53,6 +53,7 @@ class MonthController extends Controller
 
         $month->month = $request->month;
         $month->year_id = $request->year_id;
+        $month->status = $request->status;
         $month->save();
 
         return redirect()->route('month.index')->with('success', "আপনি সফলভাবে একটি মাস এডিট করেছেন");

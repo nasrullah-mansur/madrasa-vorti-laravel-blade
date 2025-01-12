@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('months', function (Blueprint $table) {
+        Schema::create('money_fors', function (Blueprint $table) {
             $table->id();
-            $table->integer('year_id');
-            $table->string('month');
-            $table->string('status')->default(STATUS_ACTIVE);
+            $table->string('name');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('months');
+        Schema::dropIfExists('money_fors');
     }
 };

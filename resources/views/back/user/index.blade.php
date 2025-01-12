@@ -49,9 +49,7 @@
                     <th>
                         <span class="text-lg">আপডেটের তারিখ</span>
                     </th>
-                    <th>
-                        <span class="text-lg">স্টাটাস</span>
-                    </th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -87,11 +85,7 @@
                     <td class="text-md">
                         {{ $user->created_at->diffForHumans() }}
                     </td>
-                    <td class="text-md">
-                        <div class="flex">
-                            <a onclick="confirm('Are you sure you want to delete it permanently? ')" href="{{ route('user.delete', $user->id) }}" class="btn btn-md btn-danger">ডিলিট</a>
-                        </div>
-                    </td>
+                    
                 </tr>
                     @empty
                     <tr>

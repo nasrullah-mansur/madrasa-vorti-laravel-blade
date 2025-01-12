@@ -3,8 +3,8 @@
 const ADMIN_ROLE = "ADMIN";
 const USER_ROLE = "USER";
 
-const STATUS_ACTIVE = "STATUS_ACTIVE";
-const STATUS_INACTIVE = "STATUS_INACTIVE";
+const STATUS_ACTIVE = "ACTIVE";
+const STATUS_INACTIVE = "INACTIVE";
 
 function convertToBanglaFont($text) {
     // Mapping of English to Bangla characters
